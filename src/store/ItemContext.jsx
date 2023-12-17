@@ -17,7 +17,7 @@ export const ItemContext = createContext({
 
 const ItemContextProvider = (props) => {
 
-   const [itemState] =  useReducer(itemReducer,intinalState)
+   const [itemState] =  useReducer(itemReducer,intinalState);
 
     const itemContextValue = {
         items: [],
