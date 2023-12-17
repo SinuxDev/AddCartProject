@@ -3,11 +3,11 @@ import ItemContextProvider from "./store/ItemContext";
 
 function App() {
   return (
-    <section>
+    <>
       <ItemContextProvider>
         <Main />
       </ItemContextProvider>
-    </section>
+    </>
   );
 }
 

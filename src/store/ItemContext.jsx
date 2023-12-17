@@ -1,26 +1,36 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useReducer } from "react";
 
-const addItemHandler = () =>{
-
-}
-
-const removeItemHandler = () =>{
-    
+const intinalState = {
+    item : [],
+    totalAmount : [],
+};
+const itemReducer = (state,action) => {
+    return intinalState;
 }
 
 export const ItemContext = createContext({
-    items : [],
-    totalAmount : 0,
-    addItem : addItemHandler,
-    removeItem : removeItemHandler,
+  items: [],
+  totalAmount: 0,
+  addItem: () => {},
+  removeItem: () => {},
 });
 
 const ItemContextProvider = (props) => {
-    return(
-        <ItemContext.Provider value={ItemContext} >
-            {props.children}
-        </ItemContext.Provider>
-    )    
+
+   const [itemState] =  useReducer(itemReducer,intinalState)
+
+    const itemContextValue = {
+        items: [],
+        totalAmount: 0,
+        addItem: () => {},
+        removeItem: () => {},
+    };
+
+  return (
+    <ItemContext.Provider value={itemContextValue}>
+      {props.children}
+    </ItemContext.Provider>
+  );
 };
 
-export default ItemContextProvider
+export default ItemContextProvider;
