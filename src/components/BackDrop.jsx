@@ -1,10 +1,16 @@
 import React from 'react'
 import Cart from './Cart' 
-const BackDrop = () => {
+const BackDrop = (props) => {
   return (
-    <section className='back-drop'>
-      <Cart />
-    </section>
+    <>
+      {
+      props.showCart && (
+        <section className='back-drop' onClick={props.hideCart} > 
+          <Cart hideCart = {props.hideCart} /> 
+        </section>)
+      }
+      
+    </>
   )
 }
 

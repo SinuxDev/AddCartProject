@@ -2,10 +2,10 @@ import React from 'react'
 import Nav from '../components/Nav'
 import Summary from '../components/Summary'
 
-const Header = () => {
+const Header = (props) => {
   return (
     <section>
-        <Nav />
+        <Nav showCartHandler = {props.showCartHandler} />
         <Summary />
     </section>
   )
