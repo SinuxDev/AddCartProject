@@ -187,3 +187,17 @@ button:hover{
   background-color: #fff;
   text-align: center;
 }
+
+@media only screen and (min-width:1000px){
+  .summary{
+    text-align: center;
+    padding: 20px;
+    font-size: 50px;
+  }
+
+  .summary p{
+     width: 80%;
+     margin: 0 auto;
+     font-size: 20px;
+  }
+}
