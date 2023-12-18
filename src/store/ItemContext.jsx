@@ -1,30 +1,47 @@
 import { createContext, useContext, useReducer } from "react";
 
 const intinalState = {
-    item : [],
-    totalAmount : [],
+    items : [],
+    totalAmount : 0,
 };
 const itemReducer = (state,action) => {
+    if(action.type == "ADD_ITEM"){
+      const updatedItems = state.items.concat(action.item);
+      const updatedTotalAmount = state.totalAmount + action.item.price * action.item.amount;
+
+      return{
+        items : updatedItems,
+        totalAmount : updatedTotalAmount,
+      }
+    }
     return intinalState;
 }
 
 export const ItemContext = createContext({
   items: [],
   totalAmount: 0,
-  addItem: () => {},
-  removeItem: () => {},
+  addItem: (item) => {},
+  removeItem: (id) => {},
 });
 
 const ItemContextProvider = (props) => {
 
-   const [itemState] =  useReducer(itemReducer,intinalState);
+  const [itemState,dispatchItem] =  useReducer(itemReducer,intinalState);
 
-    const itemContextValue = {
-        items: [],
-        totalAmount: 0,
-        addItem: () => {},
-        removeItem: () => {},
-    };
+  const addItemHandler = (item) => {
+    dispatchItem({type : "ADD_ITEM", item })
+  }
+
+  const removeItemHandler = (id) => {
+    dispatchItem({type :"REMOVE_ITEM", id })
+  }
+
+  const itemContextValue = {
+        items: itemState.items,
+        totalAmount: itemState.totalAmount,
+        addItem: addItemHandler,
+        removeItem: removeItemHandler,
+  };
 
   return (
     <ItemContext.Provider value={itemContextValue}>

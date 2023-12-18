@@ -9,7 +9,7 @@ const CartItem = ({fruit}) => {
         </div>
 
         <div className='right-side' >
-            <p className='card-quantity' > x <span>1</span> </p>
+            <p className='card-quantity' > x <span> {fruit.amount} </span> </p>
             <div className='quantity-ctr' >
                 <button className='quantity-btn m-ctr' >+</button>
                 <button className='quantity-btn'>-</button>

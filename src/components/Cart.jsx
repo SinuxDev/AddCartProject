@@ -1,48 +1,40 @@
+import { useContext } from "react";
 import CartItem from "./CartItem";
-
-const fruits = [
-  {
-    id : 1,
-    price : 10.98,
-    name : "Banana",
-    description : "Yellow Banana",
-    quantity : 2,
-  },
-  {
-    id : 2,
-    price : 12.98,
-    name : "Apple",
-    description : "Red Apple",
-    quantity : 1,
-  },
-  {
-    id : 3,
-    price : 8,
-    name : "Mango",
-    description : "MaChitSu Mango",
-    quantity : 2,
-  },
-];
+import { ItemContext } from "../store/ItemContext";
 
 const Cart = (props) => {
+
+  const {items, totalAmount} = useContext(ItemContext);
+
   return (
     <section className='cart-box' >
-        <h2>Carts</h2>
+        <h2>Your cart items are here...</h2>
         {
-          fruits.map((fruit) => (
-            <CartItem key={fruit.id} fruit = { fruit} />
-          ))
-        }
+          items.length < 1 ? (<h1 className="No-Cart" >No Items in your cart...</h1>) : 
+          (
+            <>
+              {
+                items.map((fruit) => (
+                  <CartItem key={fruit.id} fruit = { fruit} />
+                ))
+              }
+            </>
+          )
+        }        
         <hr />
 
         <div className="Total-sec">
           <h3>Total Price </h3>
-          <p>$ 3000</p>
+          <p> $ {totalAmount} </p>
         </div>
 
         <div className="Button-sec">
           <button className="close-btn" onClick={props.hideCart}  >Close</button>
-          <button className="order-btn">Order</button>
+          {
+            items.length < 1  ? (<></>) : (
+              <button className="order-btn">Order</button>
+            )
+          }
         </div>
     </section>
   )
