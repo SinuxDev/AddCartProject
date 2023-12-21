@@ -3,12 +3,11 @@
 * {
   font-family: "Poppins", sans-serif;
   background-color: antiquewhite;
+  padding: 0px;
+  margin: 0px;
 }
 
 .nav{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 10px 20px;
 }
 
@@ -20,6 +19,7 @@
 .nav h2 {
   text-transform: uppercase;
   color: rgb(239, 124, 1);
+  background-color: burlywood;
 }
 
 .nav button {
@@ -47,11 +47,9 @@
 }
 
 .card {
-  padding: 0px 10px;
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid rgb(243, 163, 59);
-  margin: 20px 0px;
+  padding: 10px 10px;
+  border: 2px solid rgb(243, 163, 59);
+  margin: 20px 10px;
   border-radius: 8px;
 }
 
@@ -196,11 +194,21 @@ button:hover{
   text-align: center;
 }
 
-@media only screen and (min-width:1000px){
-  .summary{
+@media only screen and (max-width:900px){
+
+  .nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: burlywood;
+    padding: 20px 30px;
+  }
+
+  .summary h2{
     text-align: center;
     padding: 20px;
-    font-size: 50px;
+    font-size: 30px;
+    text-transform: uppercase;  
   }
 
   .summary p{
@@ -208,4 +216,44 @@ button:hover{
      margin: 0 auto;
      font-size: 20px;
   }
+
+  .card{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 20px auto;
+  }
+
+}
+
+@media only screen and (min-width:900px){
+
+  .nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: burlywood;
+    padding: 20px 30px;
+  }
+
+  .summary h2{
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+    text-transform: uppercase;  
+  }
+
+  .summary p{
+     width: 80%;
+     margin: 0 auto;
+     font-size: 20px;
+  }
+
+  .card{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 20px auto;
+  }
+
 }
