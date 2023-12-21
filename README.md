@@ -1,3 +1,2 @@
-Not Finish!!!
-
-Love JavaScript
+Finish.....
+Fall in Love with JavaScript
